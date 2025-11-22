@@ -1,8 +1,10 @@
 import numpy as np
 import pandas as pd
+from pathlib import Path
 
-# Load dataset
-df = pd.read_csv("dataset/smartphone_cleaned_v2.csv")
+# Load dataset using relative path for deployment compatibility
+dataset_path = Path(__file__).parent.parent / "dataset" / "smartphone_cleaned_v2.csv"
+df = pd.read_csv(dataset_path)
 
 class PY():
     def brand_name(self):

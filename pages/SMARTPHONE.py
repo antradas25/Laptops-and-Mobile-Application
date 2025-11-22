@@ -96,8 +96,8 @@ if st.button("Predict Price"):
         "extended_memory": extended_memory
     }])
 
-    # Load your trained pipeline
-    model_path = Path("C:/laptops/pipeline/xgb_price_pipeline.pkl")
+    # Load your trained pipeline (using relative path for deployment compatibility)
+    model_path = Path(__file__).parent.parent / "pipeline" / "xgb_price_pipeline.pkl"
     pipeline = joblib.load(model_path)
 
     # Make prediction

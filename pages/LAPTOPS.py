@@ -124,7 +124,9 @@ if user_option == "Laptop_Prediction":
 
         input_df = pd.DataFrame([input_data])
 
-        pipeline = joblib.load(Path('pipeline/xgb1_pipeline.pkl'))
+        # Load pipeline using relative path for deployment compatibility
+        pipeline_path = Path(__file__).parent.parent / 'pipeline' / 'xgb1_pipeline.pkl'
+        pipeline = joblib.load(pipeline_path)
 
         predicted_price = pipeline.predict(input_df)[0]
 
